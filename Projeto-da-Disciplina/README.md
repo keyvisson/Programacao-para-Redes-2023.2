@@ -1,13 +1,16 @@
 PROJETO PROGRAMAÇÃO PARA REDES 2023.2
 
+
 - OBJETIVO
-Projeto de aplicação Cliente/Servidor em python utilizando Sockets TCP. Utilizaremos o TCP para garantir uma comunicação confiável, garantindo que os dados sejam entregues sem perdas. Apesar do TCP ser mais lento que o UDP, nessa aplicação será suficiente para os nossos requisitos.
+1. Projeto de aplicação Cliente/Servidor em python utilizando Sockets TCP. Utilizaremos o TCP para garantir uma comunicação confiável, garantindo que os dados sejam entregues sem perdas. Apesar do TCP ser mais lento que o UDP, nessa aplicação será suficiente para os nossos requisitos.
+
 
 - APLICAÇÃO CLIENTE
 1. Informará ao servidor que ele está on-line, informando o nome do HOST do cliente, seu IP e usuário logado;
 2. Executado em segundo plano;
 3. Caso o servidor não esteja on-line, o cliente ficará rodando em segundo plano testando a cada tempo pré-determinado se o servidor voltou a ficar on-line;
 4. Enquanto estiver na memória o agente deverá responder a requisições oriundas do servidor;
+
 
 - APLICAÇÃO SERVIDOR
 1. Permite conexão oriunda de vários clientes simultaneamente;
