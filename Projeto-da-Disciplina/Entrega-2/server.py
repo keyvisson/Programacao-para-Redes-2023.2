@@ -1,11 +1,10 @@
 import socket, threading
 
-IP = socket.gethostbyname('localhost')
+IP = socket.gethostbyname(socket.gethostname())
 PORT = 7777
 ADDR = (IP, PORT)
-DISCONNECT = '/s'
+DISCONNECT = '!s'
 clients = []
-
 
 def main():
     print('[STARTING] Inicializando servidor...')
@@ -29,19 +28,16 @@ def main():
 def messagesTreatment(client, addr):
     print('[NEW CONNECTION] {} connected.'.format(addr))
 
-    connected = True
-    while connected:
+    while True:
         try:
             message = client.recv(2048)
-            if message == DISCONNECT:
-                connected = False   
             broadcast(message, client)
+            print('[{}] {}'.format(addr, message))
 
         except:
             deleteClient(client)
             break
-
-
+    
 def broadcast(message, client):
     for clientItem in clients:
         if clientItem != client:
@@ -50,11 +46,9 @@ def broadcast(message, client):
             except:
                 deleteClient
 
-
 def deleteClient(client):
-    clients.remove(client)                
-
-
+    clients.remove(client)
+    print('[ACTIVE CONNECTIONS] {}'.format(threading.active_count() - 2))
 
 if __name__ == '__main__':
     main()
