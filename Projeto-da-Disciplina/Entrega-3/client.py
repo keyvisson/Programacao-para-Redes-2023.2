@@ -1,8 +1,9 @@
-import socket, threading, time
+import socket, threading, time, platform
 
 PORT = 7777
 IP = socket.gethostbyname(socket.gethostname())
 DISCONNECT = '/sair'
+systemInfo = '<SERVER> /hardware'
 
 def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -32,6 +33,11 @@ def receberMensagem(client):
         try:
             message = client.recv(2048).decode()
             print('{}'.format(message)+'\n')
+            # if message == systemInfo:
+            #     client.send('{}'.format(print(getHardwareInfo())).encode())
+            #     break
+            # if message == systemInfo:
+            #     return client.send(getHardwareInfo()) 
         except:
             print('\nA conexão com o servidor não foi possível.\n')
             print('Pressione enter para continuar...')
@@ -46,10 +52,19 @@ def enviarMensagem(client, username):
             client.send('<{}> {}'.format(username, message).encode())
             if message == DISCONNECT:
                 connected = False
-
         except:
             return
-    client.close()    
+    client.close()
+
+
+# def getHardwareInfo():
+    # uname = platform.uname()
+    # Info = 'Sistema Operacional: {} {}\n'.format(uname.system, uname.release)
+    # Info += 'Nome da máquina: {}\n'.format(uname.node)
+    # Info += 'Processador: {uname.processor}'.format(uname.processor)
+    # return Info
 
 if __name__ == '__main__':
     main()
+
+# print(getHardwareInfo())

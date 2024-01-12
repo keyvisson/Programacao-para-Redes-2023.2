@@ -19,5 +19,5 @@ PROJETO PROGRAMAÇÃO PARA REDES 2023.2
 4. Não permite que uma segunda instância dele seja carregado na memória;
 
   
-- BOT TELEGRAM
+- BOT TELEGRAM (NÃO IMPLEMENTADO)
 1. Utilizaremos um BOT telegram como intermediador entre o cliente e o servidor. Os comandos de comunicação entre o cliente e o servidor serão chamados atrável do BOT.
